@@ -4,97 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>【Dishcover】あなたのためのグルメレコメンドサービス</title>
-    <style>
-        /* --- 全体のスタイル --- */
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', 'Noto Sans CJK JP', sans-serif;
-            color: #333;
-            background-color: #fff;
-            line-height: 1.7;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .section {
-            padding: 80px 0;
-            text-align: center;
-        }
-        .section-title {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .section-subtitle {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 50px;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+<style>
+    /* --- 全体のスタイル --- */
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', 'Noto Sans CJK JP', sans-serif;
+        color: #333;
+        background-color: #fff;
+        line-height: 1.7;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .section {
+        padding: 40px 0;
+        text-align: center;
+    }
+    .section-title {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .section-subtitle {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 50px;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
 
-        /* --- ヘッダー / ファーストビュー --- */
-        .hero {
-            /* ★背景画像を指定 */
-            background-image: url('images/Service_image.png');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 150px 0;
-            position: relative; /* 子要素のz-indexを有効にする */
-            z-index: 1; /* 他の要素との重なり順を調整 */
-        }
-        /* 背景を少し暗くして文字を見やすくするオーバーレイ */
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            z-index: 2; /* 文字より下、背景画像より上 */
-        }
-        /* テキストやボタンをオーバーレイより上に配置 */
-        .hero .container {
-            position: relative;
-            z-index: 3;
-        }
-        .hero h1 {
-            font-size: 36px;
-            margin: 0 auto 20px auto;
-            font-weight: 900;
-            line-height: 1.4;
-            max-width: 750px;
-            color: white; /* 文字色を白に */
-        }
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 40px;
-            color: white; /* 文字色を白に */
-        }
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #007BFF, #0056b3);
-            color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-        }
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
-        }
+    /* --- ヘッダー / ファーストビュー --- */
+    .hero {
+        background-color: #f0f8ff; /* Add a solid background color as an alternative */
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        padding: 50px 0;
+        position: relative;
+        z-index: 1;
+    }
+    /* テキストやボタンをオーバーレイより上に配置 */
+    .hero .container {
+        position: relative;
+        z-index: 3;
+    }
+    .hero h1 {
+        font-size: 36px;
+        margin: 0 auto 20px auto;
+        font-weight: 900;
+        line-height: 1.4;
+        max-width: 750px;
+        color: black;
+    }
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 40px;
+        color: black;
+    }
+    .cta-button {
+        display: inline-block;
+        background: linear-gradient(45deg, #007BFF, #0056b3);
+        color: white;
+        padding: 18px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    }
+    .cta-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+    }
 
         /* --- 課題提起セクション --- */
         .problem-item-container {
@@ -205,13 +192,13 @@
         /* --- スマートフォン向けの調整 --- */
         @media (max-width: 600px) {
             .hero {
-                padding: 100px 0; /* スマホでは少し余白を詰める */
+                padding: 40px 0; /* スマホでは少し余白を詰める */
             }
             .hero h1 {
                 font-size: 32px;
             }
             .section {
-                padding: 60px 0;
+                padding: 30px 0;
             }
         }
     </style>
@@ -222,7 +209,7 @@
         <div class="container">
             <h1>多数決でのレストラン評価よ、さようなら。<br><span style="color: #4dabf7;">好みの近い人から、</span>あなた専用のお店選び。</h1>
             <p>もう行ってみてがっかりしない。あなたの「好き」が、新しいお店の評価基準になる。</p>
-            <a href="https://forms.gle/Udc7LCexfz2WRALEA" class="cta-button">サービス事前登録する（限定100名）</a>
+            <a href="https://forms.gle/Udc7LCexfz2WRALEA" class="cta-button">サービス事前登録する</a>
         </div>
     </header>
 
@@ -279,7 +266,7 @@
                 </div>
             </div>
         </div>
-       <img src='images/UI_image.png' alt="UIイメージ" style="margin-top: 40px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+       <img src='images/service_image.png' alt="UIイメージ" style="margin-top: 40px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
     </section>
 
     <section id="how-to" class="section">
@@ -306,7 +293,7 @@
         <div class="container">
             <h2 style="font-size: 28px;">さあ、多数決でのレストラン探しを、終わりにしよう。</h2>
             <p style="margin-bottom: 40px; color: #eee;">まだ知らない、あなた史上最高のお店が待っています。</p>
-            <a href="https://forms.gle/Udc7LCexfz2WRALEA" class="cta-button">サービス事前登録する（限定100名）</a>
+            <a href="https://forms.gle/Udc7LCexfz2WRALEA" class="cta-button">サービス事前登録する</a>
         </div>
     </section>
 
